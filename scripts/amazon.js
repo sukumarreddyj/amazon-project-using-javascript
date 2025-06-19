@@ -1,4 +1,4 @@
-// loading the items on to the webpage
+// loading the items on to the webpage till now I just loaded the data 
 let productItemsHtml='';
 
 dataitems.forEach((dataitem)=>{
@@ -47,7 +47,7 @@ dataitems.forEach((dataitem)=>{
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button class="add-to-cart-button button-primary added-to-cart">
             Add to Cart
           </button>
         </div>
