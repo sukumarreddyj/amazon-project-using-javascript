@@ -1,5 +1,5 @@
 // This is the cart array that will hold the items added to the cart
-export const cart = [
+export let cart = [
 {
     itemId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     quantity: 1
@@ -30,6 +30,16 @@ export function addToCart(itemId) {
       }
     }
 
+export function removeFromCart(itemId) {
+  let newCart = [];
+  cart.forEach((product) => {
+          if (product.itemId !== itemId) {
+              newCart.push(product);
+          }
+    });
+    cart = newCart; 
+
+}
 
 
 
