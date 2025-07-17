@@ -21,7 +21,7 @@ function saveToStorage(){
 // this is the fuction that will add the items to the cart
 // it will check if the item is already in the cart, if it is then it will
 export function addToCart(itemId) {
-     let matchingItem;
+    let matchingItem;
     cart.forEach((product)=>{
       if(itemId === product.itemId){
         matchingItem = product;
@@ -48,6 +48,17 @@ export function removeFromCart(itemId) {
           }
     });
     cart = newCart;
+    saveToStorage();
+}
+
+export function updateDelivaryOption(itemId, deliveryOptionId) {
+    let matchingItem;
+    cart.forEach((product)=>{
+      if(itemId === product.itemId){
+        matchingItem = product;
+      }
+    });
+    matchingItem.deliveryOptionsId = deliveryOptionId;
     saveToStorage();
 }
 
