@@ -1,15 +1,20 @@
 // This is the cart array that will hold the items added to the cart
-export let cart = [
-{
-    itemId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-    quantity: 1
-},
-{    itemId: '15b6fc6f-327a-4ec4-896f-486349e85a3d',
-    quantity: 2
+export let cart = JSON.parse(localStorage.getItem('cart'));
+
+if (!cart) {
+    [
+    {
+        itemId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+        quantity: 1
+    },
+    {    itemId: '15b6fc6f-327a-4ec4-896f-486349e85a3d',
+        quantity: 2
+    }
+    ];
 }
-
-];
-
+function saveToStorage(){
+    localStorage.setItem('cart', JSON.stringify(cart));
+}
 // this is the fuction that will add the items to the cart
 // it will check if the item is already in the cart, if it is then it will
 export function addToCart(itemId) {
@@ -28,6 +33,7 @@ export function addToCart(itemId) {
           quantity: 1
         });
       }
+      saveToStorage();
     }
 
 export function removeFromCart(itemId) {
@@ -37,8 +43,8 @@ export function removeFromCart(itemId) {
               newCart.push(product);
           }
     });
-    cart = newCart; 
-
+    cart = newCart;
+    saveToStorage();
 }
 
 
