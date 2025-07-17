@@ -1,11 +1,11 @@
 import { dataitems } from '../data/products.js';
 import { cart, addToCart } from '../data/cart.js';
+import { formattingMoney } from './utils/foramtingMoney.js';
 
+// loading the items on to the webpage till now I just loaded the data
+let productItemsHtml = '';
 
-// loading the items on to the webpage till now I just loaded the data 
-let productItemsHtml='';
-
-dataitems.forEach((dataitem)=>{
+dataitems.forEach((dataitem) => {
     productItemsHtml += `
      <div class="product-container">
           <div class="product-image-container">
@@ -26,7 +26,7 @@ dataitems.forEach((dataitem)=>{
           </div>
 
           <div class="product-price">
-            $${(dataitem.priceCents / 100).toFixed(2)}
+            $${formattingMoney(dataitem.priceCents)}
           </div>
 
           <div class="product-quantity-container">
